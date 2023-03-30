@@ -1,0 +1,21 @@
+Start the db and create a db file called foo.db
+sqlite3 foo.db
+
+Import the data into a new table called original inside the db
+.mode csv
+.import ground_vehicles.csv original
+
+Look at the db schema and see what tables are there and what columns they have
+.schema
+
+Run some sql select statements to look at the data:
+Select distinct “Vendor  Top Name” from original;
+
+Select “Vendor  Top Name”, count(*)
+from original
+Group by 1
+Having count(*) > 1000
+Order by 2 desc; 
+
+Exit from SQLite
+.quit

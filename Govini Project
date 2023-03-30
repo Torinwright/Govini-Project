@@ -1,0 +1,32 @@
+import csv
+
+with open('ground_vehicles.csv', newline='') as csvfile:
+  csv_reader = csv.reader(csvfile)
+  programs = [“abrams”, “bradley”, “stryker”, "m1a1", "m1a2", "m1130"]
+  row_num = 0
+  results = {}
+  for p in programs:
+    results[p] = 0
+  for row in csv_reader:
+    row_num += 1
+    for p in programs:
+      if row[5].lower().find(p) >= 0:
+        results[p] += 1
+        break
+
+  for p in programs:
+    print(p, results[p])
+  print("total", row_num)
+
+import csv
+
+with open('ground_vehicles.csv', newline='') as csvfile:
+  csv_reader = csv.reader(csvfile)
+  row_num = 0
+  results = {}
+  for row in csv_reader:
+    row_num += 1
+    name = row[12].lower()
+    if name not in results:
+      results[name] = 0
+    results[name] += 1

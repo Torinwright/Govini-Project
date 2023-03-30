@@ -1,0 +1,44 @@
+Show me every top level vendor that was awarded 100M or more
+
+import csv
+
+with open('ground_vehicles.csv', newline='') as csvfile:
+  csv_reader = csv.reader(csvfile)
+  row_num = 0
+  results = {}
+  awarded = {}
+  for row in csv_reader:
+    row_num += 1
+    name = row[12].lower()
+    if name not in results:
+      results[name] = 0
+    results[name] += 1
+    if name not in awarded:
+      awarded[name] = 0
+    try:
+      awarded[name] += int(row[6])
+    except ValueError:
+      pass
+
+  for n in results:
+    if (awarded[n] > 100000000):
+      print(n, results[n], awarded[n])
+  print("total", row_num)
+
+OUTPUT
+
+l3harris technologies, inc. 169 526714032
+general dynamics corporation 1104 2724943753
+allison transmission holdings, inc. 39 124437788
+raytheon technologies corporation 379 383576565
+bae systems plc 570 2788272676
+general dynamics corp.  508 1425730554
+oshkosh corporation 468 2068746879
+northrop grumman corporation 281 777355393
+leonardo spa 148 279761634
+kps capital partners, lp 57 405779399
+general atomic technologies corporation 91 261960196
+austal limited 37 520480436
+the whiting-turner contracting company 21 105930440
+total 54382
+

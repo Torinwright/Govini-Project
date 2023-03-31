@@ -1,2 +1,2 @@
 # Govini-Project
-Read the analyst homework file to see the problem I'm trying to solve.
+This project was for a technical interview response. It's not clear from the data which rows are related to the Abrams tank. For example, you could have said. I see "M1A1" in the title column (and nowhere else), but there are only a few rows that have either M1A1, M2A1, or M1130. Is that all the rows that we need? If they say yes, then add up the award amounts. If they say no, then I would have to ask how you know what data is associated with M1A1.
